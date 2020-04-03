@@ -11,11 +11,13 @@ fi
 user=$1
 
 echo "create role and binding for user $user"
-
-set -x
 kubectl create -f ${user}role.yaml
 kubectl create -f ${user}rolebinding.yaml
 
-# test
-kubectl --context=${user}-context get pods
-#kubectl --context=${user}-context create -f vanilla.yaml
+kubectl get role ${user}role -n ${user}-namespace --tenant=${user}tenant -o yaml > generatedrole
+kubectl get rolebinding ${user}rolebinding -n ${user}-namespace --tenant=${user}tenant -o yaml > generatedrolebinding
+
+echo "created role and role binding"
+echo ----------------------
+diff -y -W 150 generatedrole generatedrolebinding
+echo ----------------------
