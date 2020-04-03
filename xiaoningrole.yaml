@@ -1,9 +1,9 @@
 kind: Role
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  name: pengdurole
-  tenant: pengdutenant
-  namespace: pengdu-namespace 
+  name: xiaoningrole
+  tenant: xiaoningtenant
+  namespace: xiaoning-namespace 
 rules:
 - apiGroups: [""]
   resources: ["pods"]

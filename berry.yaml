@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: k8s-berry-pod
+  labels:
+    app: berry
+spec:
+  containers:
+  - name: berry-container
+    image: busybox
+    command: ['sh', '-c', 'echo Hello Arktos! && sleep 3600']
