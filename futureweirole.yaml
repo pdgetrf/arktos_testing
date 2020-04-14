@@ -6,5 +6,5 @@ metadata:
   namespace: futurewei-namespace 
 rules:
 - apiGroups: [""]
-  resources: ["pods"]
-  verbs: ["create", "get", "list", "watch"]
+  resources: ["pods", "jobs"]
+  verbs: ["create", "get", "list", "watch", "delete"]
