@@ -1,0 +1,29 @@
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+ name: my-pv-0 
+ labels:
+  type: local
+spec:
+ storageClassName: manual
+ capacity:
+  storage: 1Gi
+ accessModes:
+  - ReadWriteOnce
+ hostPath:
+  path: "/tmp/pv_dir"
+---
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+ name: my-pv-1 
+ labels:
+  type: local
+spec:
+ storageClassName: manual
+ capacity:
+  storage: 1Gi
+ accessModes:
+  - ReadWriteOnce
+ hostPath:
+  path: "/tmp/pv_dir"

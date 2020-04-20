@@ -5,6 +5,6 @@ metadata:
   tenant: appletenant
   namespace: apple-namespace 
 rules:
-- apiGroups: [""]
-  resources: ["pods", "jobs"]
+- apiGroups: ["*"]
+  resources: ["*"]
   verbs: ["create", "get", "list", "watch", "delete"]
