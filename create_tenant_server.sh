@@ -15,4 +15,4 @@ namespace="${user}-namespace"
 echo "create cert for tenant $tenant_name"
 
 kubectl create tenant $tenant_name
-kubectl create ns $namespace --tenant $tenant_name
+#kubectl create ns $namespace --tenant $tenant_name

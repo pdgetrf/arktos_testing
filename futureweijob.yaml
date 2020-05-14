@@ -1,0 +1,16 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: futureweijob 
+spec:
+  parallelism: 2
+  template:
+    metadata:
+      name: consumer
+    spec:
+      containers:
+      - name: consumer
+        image: busybox
+        command: ["/bin/sh","-c"]
+        args: ["echo 'consuming a message'; sleep 5"]
+      restartPolicy: OnFailure

@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: futurewei-deployment
+  labels:
+    app: fwdep
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: fwdep
+  template:
+    metadata:
+      labels:
+        app: fwdep
+    spec:
+      containers:
+      - name: vanilla-container
+        image: busybox
+        command: ['sh', '-c', 'echo Hello Arktos! && sleep 3600']

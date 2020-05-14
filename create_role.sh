@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e
+#set -e
 
 if [ "$#" -ne 1 ]
 then
@@ -20,4 +20,16 @@ kubectl get rolebinding ${user}rolebinding -n ${user}-namespace --tenant=${user}
 echo "created role and role binding"
 echo ----------------------
 diff -y -W 150 generatedrole generatedrolebinding
+echo ----------------------
+
+echo "create cluster role and binding for user $user"
+kubectl create -f ${user}clusterrole.yaml
+kubectl create -f ${user}clusterrolebinding.yaml
+
+kubectl get clusterrole ${user}clusterrole -n ${user}-namespace --tenant=${user}tenant -o yaml > generatedclusterrole
+kubectl get clusterrolebinding ${user}clusterrolebinding -n ${user}-namespace --tenant=${user}tenant -o yaml > generatedclusterrolebinding
+
+echo "created cluster role and cluster role binding"
+echo ----------------------
+diff -y -W 150 generatedclusterrole generatedclusterrolebinding
 echo ----------------------
